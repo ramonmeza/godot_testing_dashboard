@@ -25,14 +25,22 @@ func test_load() -> Result:
 	var filename: String = '%s.tres' % TEST_MAP_PATH
 	map.load(filename)
 	
+	if map.rows != TEST_MAP_ROWS:
+		var msg: String = 'TestMap.test_load(): Expected rows to be %s, but received %s' % [TEST_MAP_ROWS, map.rows]
+		return Result.new(FAILED, msg)
+		
+	if map.columns != TEST_MAP_COLS:
+		var msg: String = 'TestMap.test_load(): Expected columns to be %s, but received %s' % [TEST_MAP_COLS, map.columns]
+		return Result.new(FAILED, msg)
+	
 	# ensure loaded map cells match the expected map's cells
-	for row in range(map.rows):
-		for col in range(map.columns):
-			var cell_value: int = map.get_cell(row, col)
-			var expected_value: int =  TEST_MAP[row][col]
+	for y in range(map.rows):
+		for x in range(map.columns):
+			var cell_value: int = map.get_cell(x, y)
+			var expected_value: int = TEST_MAP[y][x]
 			
 			if cell_value != expected_value:
-				var msg: String = 'TestMap.test_load(): Expected cell(%s, %s) to be %s, but received %s' % [row, col, expected_value, cell_value]
+				var msg: String = 'TestMap.test_load(): Expected cell(%s, %s) to be %s, but received %s' % [x, y, expected_value, cell_value]
 				return Result.new(FAILED, msg)
 	
 	# test succeeded
@@ -45,10 +53,10 @@ func test_save() -> Result:
 	map.rows = TEST_MAP_ROWS
 	map.columns = TEST_MAP_COLS
 	
-	for row in range(TEST_MAP_ROWS):
-		for col in range(TEST_MAP_COLS):
-			var cell_value = TEST_MAP[row][col]
-			map.set_cell(col, row, cell_value)
+	for y in range(TEST_MAP_ROWS):
+		for x in range(TEST_MAP_COLS):
+			var cell_value = TEST_MAP[y][x]
+			map.set_cell(x, y, cell_value)
 	
 	# get the temp file name
 	var dir: Directory = Directory.new()

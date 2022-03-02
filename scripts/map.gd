@@ -3,8 +3,8 @@ extends TileMap
 
 
 # properties
-var rows: int
-var columns: int
+export var rows: int
+export var columns: int
 
 
 # functions
@@ -14,29 +14,33 @@ func load(path: String):
 	if not dir.file_exists(path):
 		push_error('Map.load(): file \'%s\' does not exist!' % path)
 	
-	# load the resource
-	var file = load(path)
+	self.clear()
 	
-	self.rows = file.rows
-	self.columns = file.columns
+	# load the resource
+	var data = load(path)
+	
+	self.rows = data.rows
+	self.columns = data.columns
 	
 	# load tiles
-	self.clear()
-	for row in range(self.rows):
-		for col in range(self.columns):
-			var cell_value = file.cells[row][col]
-			self.set_cell(col, row, cell_value)
+	for y in range(self.rows):
+		for x in range(self.columns):
+			self.set_cell(x, y, data.cells[y][x])
 
 
 func save(path: String):
+	# save the resource
 	var data = MapResource.new()
+	
+	data.rows = self.rows
+	data.columns = self.columns
 	
 	# save tiles
 	var cells: Array = []
-	for row in range(self.rows):
+	for y in range(self.rows):
 		cells.append([])
-		for col in range(self.columns):
-			cells[row].append(self.get_cell(col, row))
+		for x in range(self.columns):
+			cells[y].append(self.get_cell(x, y))
 	data.cells = cells
 	
 	# save the data
