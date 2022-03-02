@@ -1,0 +1,91 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "",
+"class": "GitAPI",
+"language": "NativeScript",
+"path": "res://addons/godot-git-plugin/git_api.gdns"
+}, {
+"base": "TileMap",
+"class": "Map",
+"language": "GDScript",
+"path": "res://scripts/map.gd"
+}, {
+"base": "Resource",
+"class": "MapResource",
+"language": "GDScript",
+"path": "res://scripts/resources/map_resource.gd"
+}, {
+"base": "Object",
+"class": "Report",
+"language": "GDScript",
+"path": "res://tests/scripts/report.gd"
+}, {
+"base": "Object",
+"class": "Result",
+"language": "GDScript",
+"path": "res://tests/scripts/result.gd"
+}, {
+"base": "Node",
+"class": "Runner",
+"language": "GDScript",
+"path": "res://tests/scripts/runner.gd"
+}, {
+"base": "Node",
+"class": "TestBase",
+"language": "GDScript",
+"path": "res://tests/scripts/test_base.gd"
+}, {
+"base": "Control",
+"class": "TestDashboard",
+"language": "GDScript",
+"path": "res://tests/scripts/test_dashboard.gd"
+}, {
+"base": "TestBase",
+"class": "TestExample",
+"language": "GDScript",
+"path": "res://tests/cases/test_example.gd"
+}, {
+"base": "TestBase",
+"class": "TestMap",
+"language": "GDScript",
+"path": "res://tests/cases/test_map.gd"
+} ]
+_global_script_class_icons={
+"GitAPI": "",
+"Map": "",
+"MapResource": "",
+"Report": "",
+"Result": "",
+"Runner": "",
+"TestBase": "",
+"TestDashboard": "",
+"TestExample": "",
+"TestMap": ""
+}
+
+[application]
+
+config/name="testing_dashboard"
+run/main_scene="res://tests/test_dashboard.tscn"
+config/icon="res://icon.png"
+
+[gdnative]
+
+singletons=[ "res://addons/godot-git-plugin/git_api.gdnlib" ]
+
+[physics]
+
+common/enable_pause_aware_picking=true
+
+[rendering]
+
+environment/default_environment="res://default_env.tres"
