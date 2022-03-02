@@ -1,6 +1,5 @@
 # Godot Testing Dashboard
 
-
 <p align="center">
   <img src="testing_dashboard_screenshot.png" width="600" alt="Godot Testing Dashboard">
 </p>
