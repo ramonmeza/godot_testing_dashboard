@@ -1,4 +1,4 @@
-class_name TestDashboard
+class_name TestingDashboard
 extends Control
 
 # constants

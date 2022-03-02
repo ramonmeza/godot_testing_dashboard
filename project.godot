@@ -44,11 +44,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://tests/scripts/test_base.gd"
 }, {
-"base": "Control",
-"class": "TestDashboard",
-"language": "GDScript",
-"path": "res://tests/scripts/test_dashboard.gd"
-}, {
 "base": "TestBase",
 "class": "TestExample",
 "language": "GDScript",
@@ -58,6 +53,11 @@ _global_script_classes=[ {
 "class": "TestMap",
 "language": "GDScript",
 "path": "res://tests/cases/test_map.gd"
+}, {
+"base": "Control",
+"class": "TestingDashboard",
+"language": "GDScript",
+"path": "res://tests/scripts/testing_dashboard.gd"
 } ]
 _global_script_class_icons={
 "GitAPI": "",
@@ -67,15 +67,15 @@ _global_script_class_icons={
 "Result": "",
 "Runner": "",
 "TestBase": "",
-"TestDashboard": "",
 "TestExample": "",
-"TestMap": ""
+"TestMap": "",
+"TestingDashboard": ""
 }
 
 [application]
 
 config/name="testing_dashboard"
-run/main_scene="res://tests/test_dashboard.tscn"
+run/main_scene="res://tests/testing_dashboard.tscn"
 config/icon="res://icon.png"
 
 [gdnative]
