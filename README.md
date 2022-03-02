@@ -2,9 +2,7 @@
 
 
 <p align="center">
-  <a href="https://godotengine.org">
-    <img src="testing_dashboard_screenshot.png" width="600" alt="Godot Testing Dashboard">
-  </a>
+  <img src="testing_dashboard_screenshot.png" width="600" alt="Godot Testing Dashboard">
 </p>
 
 *A (relatively) pain-free way to test your Godot applications.*
